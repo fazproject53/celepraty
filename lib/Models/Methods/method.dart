@@ -74,9 +74,9 @@ Widget container(double height, double width, double marginL, double marginR,
 }
 
 //gradient contaner------------------------------------------------------------------
-Widget gradientContainer(double width, Widget child) {
+Widget gradientContainer( Widget child) {
   return Container(
-    width: width.w,
+    width: double.infinity,
     // height: height.h,
     child: child,
     decoration: BoxDecoration(
@@ -92,9 +92,9 @@ Widget gradientContainer(double width, Widget child) {
 }
 //solid: contaner------------------------------------------------------------------
 
-Widget solidContainer(double width, Color color, Widget child) {
+Widget solidContainer( Color color, Widget child) {
   return Container(
-    width: width.w,
+    width: double.infinity,
     // height: height.h,
 
     child: child,

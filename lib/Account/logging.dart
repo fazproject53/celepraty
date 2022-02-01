@@ -44,7 +44,7 @@ class _LoggingState extends State<Logging> {
                   children: [
 //famus buttom-------------------------------------
                     gradientContainer(
-                      102,
+                      
                       buttoms(
                         context,
                         'متابع',
@@ -57,7 +57,7 @@ class _LoggingState extends State<Logging> {
                       width: 21.w,
                     ),
 //follwer buttom-------------------------------------
-                    solidContainer(102,transparent,
+                    solidContainer(transparent,
                         buttoms(context, 'مشهور', 12, white, () {})),
                   ],
                 ),
@@ -99,7 +99,7 @@ class _LoggingState extends State<Logging> {
                         ),
 
 //create account buttom-----------------------------------------------------------
-                        gradientContainer(347,
+                        gradientContainer(
                             buttoms(context, 'انشاء حساب', 14, white, () {})),
                         SizedBox(
                           height: 14.h,
@@ -111,7 +111,7 @@ class _LoggingState extends State<Logging> {
                         ),
 //googel buttom-----------------------------------------------------------
                         solidContainer(
-                           347,
+                           
                             white,
                             singWthisButtom(context, "تسجيل دخول بجوجل", black,
                                 white, () {}, googelImage)),
@@ -120,7 +120,7 @@ class _LoggingState extends State<Logging> {
                         ),
 //facebook buttom-----------------------------------------------------------
                         solidContainer(
-                          347,
+                          
                             darkBlue,
                             singWthisButtom(context, "تسجيل دخول فيسبوك", white,
                                 darkBlue, () {}, facebookImage)),
