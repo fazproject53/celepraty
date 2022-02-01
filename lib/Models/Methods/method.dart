@@ -72,10 +72,9 @@ Widget container(double height, double width, double marginL, double marginR,
 
 //gradient:  contaner------------------------------------------------------------------
 Widget gradientContainer(double width,Widget child) {
- 
 
   return Container(
-      width: width,
+      width: width.w,
       child:child,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(4.0),
