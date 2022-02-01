@@ -11,8 +11,8 @@ Color black = hexToColor('#000000');
 Color ligthtBlack = hexToColor('#1D192C');
 Color darkBlue = hexToColor('#39579A');
 Color textBlack = hexToColor('#5C5E6F');
-Color intrductionTextBlack = hexToColor('#7B7B8B');
-Color textFieldBlack = hexToColor('#7477A0');
+Color darkWhite = hexToColor('#7B7B8B');
+Color deepBlack = hexToColor('#7477A0');
 const Color transparent=Colors.transparent;
 
 //Icons name----------------------------------------------------------------
@@ -22,6 +22,15 @@ IconData emailIcon=Icons.email_outlined;
 IconData countryIcon=Icons.flag_rounded;
 IconData catogaryIcon=Icons.reduce_capacity_rounded;
 
-//Icons name----------------------------------------------------------------
+//controller name----------------------------------------------------------------
+TextEditingController nameConttroller= TextEditingController();
+TextEditingController passConttroller=TextEditingController();
+TextEditingController emailConttroller=TextEditingController();
+TextEditingController countryConttroller=TextEditingController();
+TextEditingController catogaryConttroller=TextEditingController();
 
+//image path------------------------------------------------------
+String staticPath="assets/image/";
+String googelImage=staticPath+"google-logo.png";
+String facebookImage=staticPath+"facbok_logo.png";
 

@@ -1,6 +1,5 @@
 //================ convert hex colors to rgb colors================
 import 'package:celepraty/Models/Variabls/varaibles.dart';
-import 'package:celepraty/localization/localization_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -17,38 +16,30 @@ Widget text(
   String key,
   double fontSize,
   Color color, {
-  
-  family = "DroidKufi",
+  family = "Cairo",
   align = TextAlign.right,
   double space = 0,
   FontWeight fontWeight = FontWeight.normal,
 }) {
   return Center(
     child: AutoSizeText.rich(
-     
-     TextSpan( 
-
-       text: "${getTranslated(context, key)}",
-       style: TextStyle(
-         
-        color: color,
-        fontFamily: family,
-        fontSize: fontSize.sp,
-        letterSpacing: space.sp,
-        fontWeight: fontWeight,
+      TextSpan(
+        text: key,
+        style: TextStyle(
+          color: color,
+          fontFamily: family,
+          fontSize: fontSize.sp,
+          letterSpacing: space.sp,
+          fontWeight: fontWeight,
+        ),
       ),
-      
-      ),
-      maxLines: 4,
-      minFontSize: 12.sp,
-      
     ),
   );
 }
 
 //===============================Continer===============================
 Widget container(double height, double width, double marginL, double marginR,
-    Widget child, Color color,
+    Color color, Widget child,
     {double blur = 0.0,
     Offset offset = Offset.zero,
     double spShadow = 0.0,
@@ -82,58 +73,70 @@ Widget container(double height, double width, double marginL, double marginR,
   );
 }
 
-//gradient:  contaner------------------------------------------------------------------
-Widget gradientContainer(double width,Widget child) {
-
+//gradient contaner------------------------------------------------------------------
+Widget gradientContainer(double width, Widget child) {
   return Container(
-      width: width.w,
-      child:child,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(4.0),
-        gradient: const LinearGradient(
-          begin: Alignment(0.7, 2.0),
-          end: Alignment(-0.69, -1.0),
-          colors: [Color(0xff0ab3d0), Color(0xffe468ca)],
-          stops: [0.0, 1.0],
-        ),
-        
+    width: width.w,
+    // height: height.h,
+    child: child,
+    decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(4.0),
+      gradient: const LinearGradient(
+        begin: Alignment(0.7, 2.0),
+        end: Alignment(-0.69, -1.0),
+        colors: [Color(0xff0ab3d0), Color(0xffe468ca)],
+        stops: [0.0, 1.0],
       ),
-    
-    
+    ),
+  );
+}
+//solid: contaner------------------------------------------------------------------
+
+Widget solidContainer(double width, Color color, Widget child) {
+  return Container(
+    width: width.w,
+    // height: height.h,
+
+    child: child,
+    decoration: BoxDecoration(
+      color: color,
+      border: Border.all(color: deepBlack, width: 1.5),
+      borderRadius: BorderRadius.circular(4.0),
+    ),
   );
 }
 //=============================Padding Widget=================================
 
-Widget padding(double pL, double pR, double pT, Widget child,
-    {double pB = 0.0}) {
+Widget padding(
+  double left,
+  double right,
+  Widget child,
+) {
   return Padding(
-    padding: EdgeInsets.only(left: pL.w, right: pR.w, top: pT.h, bottom: pB.h),
+    padding: EdgeInsets.only(left:left.w,right: right.w),
     child: child,
   );
 }
 
 //=================================Buttoms=============================
-Widget buttoms(context, String key, fontSize, Color textColor, onPressed,
+Widget buttoms(context, String key, double fontSize, Color textColor, onPressed,
     {Color backgrounColor = transparent,
     double horizontal = 0.0,
     double vertical = 0.0,
     double evaluation = 0.0}) {
-  return SizedBox(
-    width: double.infinity.w,
-    height: 45.h,
-    child: TextButton(
-      onPressed: onPressed,
-      child: text(context, key, fontSize, textColor),
-      style: ButtonStyle(
-        elevation: MaterialStateProperty.all(evaluation),
-        backgroundColor: MaterialStateProperty.all(backgrounColor),
-        foregroundColor: MaterialStateProperty.all(textColor),
-        padding: MaterialStateProperty.all(EdgeInsets.symmetric(
-            horizontal: horizontal.w, vertical: vertical.h)),
-      ),
+  return TextButton(
+    onPressed: onPressed,
+    child: text(context, key, fontSize, textColor),
+    style: ButtonStyle(
+      elevation: MaterialStateProperty.all(evaluation),
+      backgroundColor: MaterialStateProperty.all(backgrounColor),
+      foregroundColor: MaterialStateProperty.all(textColor),
+      padding: MaterialStateProperty.all(
+          EdgeInsets.symmetric(horizontal: horizontal.w, vertical: vertical.h)),
     ),
   );
 }
+
 
 //===============================Go To page(push)===============================
 push(context, pageName) {
@@ -144,4 +147,56 @@ push(context, pageName) {
 pushReplacement(context, pageName) {
   return Navigator.pushReplacement(
       context, MaterialPageRoute(builder: (_) => pageName));
+}
+
+//get heghit and width===============================================================
+Size getSize(context) {
+  return MediaQuery.of(context).size;
+}
+
+//=============================TextFields=================================
+Widget textField(
+  context,
+  icons,
+  String key,
+  double fontSize,
+  bool hintPass,
+  TextEditingController mycontroller,
+  myvali,
+) {
+  return TextFormField(
+    obscureText: hintPass,
+    validator: myvali,
+    controller: mycontroller,
+    style: TextStyle(color: white, fontSize: fontSize.sp),
+    decoration: InputDecoration(
+      
+        isDense: true,
+        filled: true,
+        hintStyle: TextStyle(color: deepBlack, fontSize: fontSize.sp),
+        fillColor: ligthtBlack,
+        labelStyle: TextStyle(color: deepBlack, fontSize: fontSize.sp),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.r)),
+        prefixIcon: Icon(icons, color: deepBlack, size: 25.sp),
+        labelText: key,
+        
+        contentPadding: EdgeInsets.all(10.h)),
+  );
+}
+//SingWith bouttom------------------------------------------------------------------
+Widget singWthisButtom(context, String key, Color textColor, Color backColor, onPressed,image) {
+  return TextButton(
+    onPressed: onPressed,
+    child: Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+       Image(image: AssetImage(image),height: 30.h,width: 30.w,),
+       SizedBox(width: 16.92.w,),
+      text(context, key, 11.sp, textColor)
+      ]),
+    style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all(backColor),
+      foregroundColor: MaterialStateProperty.all(textColor),
+      ),
+  );
 }
