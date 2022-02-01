@@ -3,6 +3,7 @@ import 'package:celepraty/Models/Variabls/varaibles.dart';
 import 'package:celepraty/localization/localization_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 //convert HEX colors----------------------------------------------------------
 Color hexToColor(String hexString, {alphaChannel = 'ff'}) {
@@ -16,20 +17,31 @@ Widget text(
   String key,
   double fontSize,
   Color color, {
+  
   family = "DroidKufi",
   align = TextAlign.right,
   double space = 0,
   FontWeight fontWeight = FontWeight.normal,
 }) {
-  return Text(
-    "${getTranslated(context, key)}",
-    textAlign: align,
-    style: TextStyle(
-      color: color,
-      fontFamily: family,
-      fontSize: fontSize.sp,
-      letterSpacing: space.sp,
-      fontWeight: fontWeight,
+  return Center(
+    child: AutoSizeText.rich(
+     
+     TextSpan( 
+
+       text: "${getTranslated(context, key)}",
+       style: TextStyle(
+         
+        color: color,
+        fontFamily: family,
+        fontSize: fontSize.sp,
+        letterSpacing: space.sp,
+        fontWeight: fontWeight,
+      ),
+      
+      ),
+      maxLines: 4,
+      minFontSize: 12.sp,
+      
     ),
   );
 }

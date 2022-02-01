@@ -1,8 +1,5 @@
 import 'package:celepraty/Models/Methods/method.dart';
 import 'package:flutter/material.dart';
-import 'localization/localization_methods.dart';
-import 'localization/set_localization.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:device_preview/device_preview.dart';
 
@@ -25,9 +22,11 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder: () => MaterialApp(
+        theme: ThemeData(fontFamily: "Cairo"),
         builder: (context, widget) {
           ScreenUtil.setContext(context);
           return MediaQuery(
+          
             data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
             child: Scaffold(
               body: gradientContainer(200.w, Text("hhhhhhhhhhhhhhhhhhhh",style: TextStyle(fontSize:50.sp
