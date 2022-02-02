@@ -51,26 +51,22 @@ class _LoggingState extends State<Logging> {
 //====================================TextFields=========================================================
 
 //email------------------------------------------
-    textField(context, emailIcon, "البريد الالكتروني", 10, false,
-        emailConttroller, (val) {}),
-    SizedBox(
-      height: 15.h,
-    ),
+                      textField(context, emailIcon, "البريد الالكتروني", 10,
+                          false, emailConttroller, (val) {}),
+                      SizedBox(
+                        height: 15.h,
+                      ),
 //pass------------------------------------------
-    textField(
-        context, passIcon, "كلمة المرور", 10, false, passConttroller, (val) {}),
-    SizedBox(
-      height: 15.h,
-    ),
+                      textField(context, passIcon, "كلمة المرور", 10, false,
+                          passConttroller, (val) {}),
+                      SizedBox(
+                        height: 15.h,
+                      ),
 //remember me && forget pass------------------------------------------
-Row(
-  children: [
-    Icon(Icons.check_circle_rounded,color:ligthtBlack)
-  ],
-),
-SizedBox(
-      height: 15.h,
-    ),
+                      remmerberMe(),
+                      SizedBox(
+                        height: 15.h,
+                      ),
 //logging buttom------------------------------
                       gradientContainer(347,
                           buttoms(context, 'تسجيل الدخول', 14, white, () {})),
@@ -106,4 +102,26 @@ SizedBox(
       )),
     );
   }
+//-------------------------------------------------------
+  Widget remmerberMe() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+       Row(children: [
+          Icon(Icons.check_circle_rounded, color: ligthtBlack, size: 25.sp),
+        SizedBox(
+          width: 4.w,
+        ),
+        text(context, 'تزكرني', 12.sp, textBlack),
+        
+       ],),
+       SizedBox(
+          width: 180.w,
+        ),
+        text(context, 'هل نسيت كلمة المرور؟', 12.sp, purple),
+      ],
+    );
+  }
+//-------------------------------------------------------
+
 }
