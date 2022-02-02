@@ -16,31 +16,12 @@ userForm(context, bool isVisable) {
       height: 15.h,
     ),
 //contry------------------------------------------
-
-    // DropdownButtonFormField(
-
-    // items: ["eget","sudan"].map((String category) {
-    // return  DropdownMenuItem(
-
-    //   value: category,
-    //   child: Row(
-    //     children: [
-    //       const Icon(Icons.star),
-    //       Text(category),
-    //     ],
-    //    )
-    //   );
-    //  }).toList(),
-    //    onChanged: (Object? value) {  },
-
-    // )
-
     textField(
         context, countryIcon, "الدولة", 10, false, nameConttroller, (val) {},
         suffixIcon: Icon(Icons.arrow_drop_down, color: deepBlack),
         onTap: () {}),
 
-    //catogary------------------------------------------
+//catogary------------------------------------------
 
     SizedBox(
       height: 15.h,
@@ -60,15 +41,15 @@ userForm(context, bool isVisable) {
         height: 15.h,
       ),
     ),
-//name------------------------------------------
+//email------------------------------------------
     textField(context, emailIcon, "البريد الالكتروني", 10, false,
-        nameConttroller, (val) {}),
+        emailConttroller, (val) {}),
     SizedBox(
       height: 15.h,
     ),
-//name------------------------------------------
+//pass------------------------------------------
     textField(
-        context, passIcon, "كلمة المرور", 10, false, nameConttroller, (val) {}),
+        context, passIcon, "كلمة المرور", 10, false, passConttroller, (val) {}),
     SizedBox(
       height: 15.h,
     ),

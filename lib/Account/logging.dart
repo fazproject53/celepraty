@@ -34,91 +34,48 @@ class _LoggingState extends State<Logging> {
             children: [
               SizedBox(height: 170.h),
 //استمتع يالتواصل--------------------------------------------------
-              text(context, "استمتع بالتواصل", 18, white),
+              text(context, "مرحبا بك مرة اخري", 18, white),
 //انشاء حساب--------------------------------------------------
-              text(context, "انشاء حساب", 13, darkWhite),
+              text(context, "تسجيل الدخول", 13, darkWhite),
               SizedBox(
                 height: 22.h,
               ),
-//==============================buttoms===============================================================
 
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-//famus buttom-------------------------------------
-                  gradientContainer(
-                    102,
-                    buttoms(
-                      context,
-                      'متابع',
-                      12,
-                      white,
-                      () {
-                        setState(() {
-                          isChang = false;
-                        });
-                        print("fallower$isChang");
-                      },
-                    ),
-                  ),
-                  SizedBox(
-                    width: 21.w,
-                  ),
-//follwer buttom-------------------------------------
-                  solidContainer(
-                      102,
-                      transparent,
-                      buttoms(context, 'مشهور', 12, white, () {
-                        setState(() {
-                          isChang = true;
-                        });
-                        print("famus$isChang");
-                      })),
-                ],
-              ),
-
-              SizedBox(
-                height: 30.h,
-              ),
 //=============================================================================================
               padding(
-                  33,
-                  33,
+                  20,
+                  20,
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
 //====================================TextFields=========================================================
 
-                      Form(child: isChang?userForm(context ,true) :userForm(context ,false)),
-//====================================buttoms=========================================================
-//create account------------------------------
+//email------------------------------------------
+    textField(context, emailIcon, "البريد الالكتروني", 10, false,
+        emailConttroller, (val) {}),
+    SizedBox(
+      height: 15.h,
+    ),
+//pass------------------------------------------
+    textField(
+        context, passIcon, "كلمة المرور", 10, false, passConttroller, (val) {}),
+    SizedBox(
+      height: 15.h,
+    ),
+//remember me && forget pass------------------------------------------
+Row(
+  children: [
+    Icon(Icons.check_circle_rounded,color:ligthtBlack)
+  ],
+),
+SizedBox(
+      height: 15.h,
+    ),
+//logging buttom------------------------------
                       gradientContainer(347,
-                          buttoms(context, 'انشاء حساب', 14, white, () {})),
-//singup with-----------------------------------------------------------
+                          buttoms(context, 'تسجيل الدخول', 14, white, () {})),
                       SizedBox(
-                        height: 14.h,
-                      ),
-                      text(context, "او التسجيل من خلال", 9, darkWhite),
-                      SizedBox(
-                        height: 14.h,
-                      ),
-//googel buttom-----------------------------------------------------------
-                      solidContainer(
-                          347,
-                          white,
-                          singWthisButtom(context, "تسجيل دخول بجوجل", black,
-                              white, () {}, googelImage)),
-                      SizedBox(
-                        height: 14.h,
-                      ),
-//facebook buttom-----------------------------------------------------------
-                      solidContainer(
-                          347,
-                          darkBlue,
-                          singWthisButtom(context, "تسجيل دخول فيسبوك", white,
-                              darkBlue, () {}, facebookImage)),
-                      SizedBox(
-                        height: 27.h,
+                        height: 34.h,
                       ),
 //have Account buttom-----------------------------------------------------------
                       Row(
@@ -127,12 +84,12 @@ class _LoggingState extends State<Logging> {
                         children: [
                           Wrap(
                             children: [
-                              text(context, "هل لديك حساب بالفعل؟", 11,
+                              text(context, "ليس لديك حساب بالفعل؟", 11,
                                   darkWhite),
                               SizedBox(
                                 width: 7.w,
                               ),
-                              text(context, "تسجيل الدخول", 11, purple),
+                              text(context, "انشاء حساب", 11, purple),
                             ],
                           )
                         ],
@@ -149,8 +106,4 @@ class _LoggingState extends State<Logging> {
       )),
     );
   }
-
-  
- 
-  }
-
+}

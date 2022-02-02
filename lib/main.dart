@@ -1,8 +1,8 @@
-import 'package:celepraty/Models/Methods/method.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:device_preview/device_preview.dart';
 
+import 'Account/Singup.dart';
 import 'Account/logging.dart';
 
 void main() => runApp(
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           return MediaQuery(
           
             data: MediaQuery.of(context).copyWith(textScaleFactor: 1.28),
-            child: Logging()
+            child:const Logging()
 
           );
         },

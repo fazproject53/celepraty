@@ -74,19 +74,21 @@ Widget container(double height, double width, double marginL, double marginR,
 }
 
 //gradient contaner------------------------------------------------------------------
-Widget gradientContainer(double width, Widget child) {
+Widget gradientContainer(double width, Widget child,{bool gradient =false}) {
   return Container(
     width: width.w,
     // height: height.h,
     child: child,
     decoration: BoxDecoration(
+     
+      border: Border.all(color: deepBlack, width: 1.5),
       borderRadius: BorderRadius.circular(4.0),
-      gradient: const LinearGradient(
+      gradient:  gradient==false? const LinearGradient(
         begin: Alignment(0.7, 2.0),
         end: Alignment(-0.69, -1.0),
         colors: [Color(0xff0ab3d0), Color(0xffe468ca)],
         stops: [0.0, 1.0],
-      ),
+      ):null,
     ),
   );
 }
