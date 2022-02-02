@@ -34,3 +34,5 @@ String staticPath="assets/image/";
 String googelImage=staticPath+"google-logo.png";
 String facebookImage=staticPath+"facbok_logo.png";
 
+//country list-------------------------------------------------------------
+List<String>countryName=[ "السعودية","الامارات","البحرين","الكويت","المانيا", "ماليزيا","قطر", "الجزائر","لبنان","سنغافورة","تركيا","الصين","فرنسا","الهند","مصر","العراق""الاردن""امريكا""كوريا"];

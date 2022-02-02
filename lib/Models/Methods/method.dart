@@ -74,9 +74,9 @@ Widget container(double height, double width, double marginL, double marginR,
 }
 
 //gradient contaner------------------------------------------------------------------
-Widget gradientContainer( Widget child) {
+Widget gradientContainer(double width, Widget child) {
   return Container(
-    width: double.infinity,
+    width: width.w,
     // height: height.h,
     child: child,
     decoration: BoxDecoration(
@@ -92,9 +92,9 @@ Widget gradientContainer( Widget child) {
 }
 //solid: contaner------------------------------------------------------------------
 
-Widget solidContainer( Color color, Widget child) {
+Widget solidContainer(double width, Color color, Widget child) {
   return Container(
-    width: double.infinity,
+    width: width.w,
     // height: height.h,
 
     child: child,
@@ -110,10 +110,10 @@ Widget solidContainer( Color color, Widget child) {
 Widget padding(
   double left,
   double right,
-  Widget child,
+  Widget child
 ) {
   return Padding(
-    padding: EdgeInsets.only(left:left.w,right: right.w),
+    padding: EdgeInsets.only(left: left.w, right: right.w),
     child: child,
   );
 }
@@ -136,7 +136,6 @@ Widget buttoms(context, String key, double fontSize, Color textColor, onPressed,
     ),
   );
 }
-
 
 //===============================Go To page(push)===============================
 push(context, pageName) {
@@ -163,40 +162,47 @@ Widget textField(
   bool hintPass,
   TextEditingController mycontroller,
   myvali,
+  {Widget? suffixIcon,void Function()? onTap}
 ) {
   return TextFormField(
     obscureText: hintPass,
     validator: myvali,
+    onTap: onTap,
     controller: mycontroller,
     style: TextStyle(color: white, fontSize: fontSize.sp),
     decoration: InputDecoration(
-      
         isDense: true,
         filled: true,
+        suffixIcon:suffixIcon,
         hintStyle: TextStyle(color: deepBlack, fontSize: fontSize.sp),
         fillColor: ligthtBlack,
         labelStyle: TextStyle(color: deepBlack, fontSize: fontSize.sp),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.r)),
         prefixIcon: Icon(icons, color: deepBlack, size: 25.sp),
         labelText: key,
-        
         contentPadding: EdgeInsets.all(10.h)),
   );
 }
+
 //SingWith bouttom------------------------------------------------------------------
-Widget singWthisButtom(context, String key, Color textColor, Color backColor, onPressed,image) {
+Widget singWthisButtom(
+    context, String key, Color textColor, Color backColor, onPressed, image) {
   return TextButton(
     onPressed: onPressed,
-    child: Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-       Image(image: AssetImage(image),height: 30.h,width: 30.w,),
-       SizedBox(width: 16.92.w,),
+    child: Row(mainAxisSize: MainAxisSize.min, children: [
+      Image(
+        image: AssetImage(image),
+        height: 30.h,
+        width: 30.w,
+      ),
+      SizedBox(
+        width: 16.92.w,
+      ),
       text(context, key, 11.sp, textColor)
-      ]),
+    ]),
     style: ButtonStyle(
       backgroundColor: MaterialStateProperty.all(backColor),
       foregroundColor: MaterialStateProperty.all(textColor),
-      ),
+    ),
   );
 }
