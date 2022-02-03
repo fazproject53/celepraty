@@ -13,7 +13,7 @@ class Logging extends StatefulWidget {
 }
 
 class _LoggingState extends State<Logging> {
-  bool isChang = false;
+  bool isChckid = false;
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +70,7 @@ class _LoggingState extends State<Logging> {
 //logging buttom------------------------------
                       gradientContainer(
                           347,
-                          buttoms(context, 'تسجيل الدخول', 14, white, () {
+                          buttoms(context, 'تسجيل الدخول', 13, white, () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (_) => SingUp()));
                           })),
@@ -84,12 +84,12 @@ class _LoggingState extends State<Logging> {
                         children: [
                           Wrap(
                             children: [
-                              text(context, "ليس لديك حساب بالفعل؟", 11,
+                              text(context, "ليس لديك حساب بالفعل؟", 12,
                                   darkWhite),
                               SizedBox(
                                 width: 7.w,
                               ),
-                           InkWell( child:text(context, "انشاء حساب", 11, purple),onTap: ()=>goTopageReplacement(context, const SingUp())),
+                           InkWell( child:text(context, "انشاء حساب", 12, purple),onTap: ()=>goTopageReplacement(context, const SingUp())),
                             ],
                           )
                         ],
@@ -114,16 +114,21 @@ class _LoggingState extends State<Logging> {
       children: [
         Row(
           children: [
-            Icon(Icons.check_circle_rounded, color: ligthtBlack, size: 25.sp),
+            InkWell(child: Icon(Icons.check_circle_rounded, color: isChckid?pink:ligthtBlack, size: 25.sp),onTap:(){
+             
+              setState(() {
+                 isChckid=!isChckid;
+              });
+            }),
             SizedBox(
               width: 4.w,
             ),
-            text(context, 'تزكرني', 12.sp, textBlack),
+            text(context, 'تزكرني', 13.sp, textBlack),
           ],
         ),
-        SizedBox(
-          width: 180.w,
-        ),
+        // SizedBox(
+        //   width: 180.w,
+        // ),
         text(context, 'هل نسيت كلمة المرور؟', 12.sp, purple),
       ],
     );

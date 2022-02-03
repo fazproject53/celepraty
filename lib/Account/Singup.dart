@@ -103,7 +103,7 @@ class _SingUpState extends State<SingUp> {
                               : userForm(context, false),
 //create account------------------------------
                       gradientContainer(347,
-                          buttoms(context, 'انشاء حساب', 14, white, () {})),
+                          buttoms(context, 'انشاء حساب', 13, white, () {})),
 //singup with-----------------------------------------------------------
                       SizedBox(
                         height: 14.h,
@@ -137,12 +137,12 @@ class _SingUpState extends State<SingUp> {
                         children: [
                           Wrap(
                             children: [
-                              text(context, "هل لديك حساب بالفعل؟", 11,
+                              text(context, "هل لديك حساب بالفعل؟", 12,
                                   darkWhite),
                               SizedBox(
                                 width: 7.w,
                               ),
-                              InkWell(child: text(context, "تسجيل الدخول", 11, purple),onTap: ()=>goTopageReplacement(context, const Logging()),),
+                              InkWell(child: text(context, "تسجيل الدخول",12, purple),onTap: ()=>goTopageReplacement(context, const Logging()),),
                             ],
                           )
                         ],
