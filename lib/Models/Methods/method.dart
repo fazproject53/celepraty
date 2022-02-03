@@ -140,15 +140,15 @@ Widget buttoms(context, String key, double fontSize, Color textColor, onPressed,
 }
 
 //===============================Go To page(push)===============================
-push(context, pageName) {
+goTopagepush(context, pageName) {
   return Navigator.push(context, MaterialPageRoute(builder: (_) => pageName));
 }
 
 //===============================Go To page(pushReplacement)===============================
-pushReplacement(context, pageName) {
-  return Navigator.pushReplacement(
-      context, MaterialPageRoute(builder: (_) => pageName));
+goTopageReplacement(context, pageName) {
+  return Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => pageName));
 }
+
 
 //get heghit and width===============================================================
 Size getSize(context) {

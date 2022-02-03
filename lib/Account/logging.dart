@@ -3,7 +3,7 @@ import 'package:celepraty/Models/Variabls/varaibles.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'UserForm.dart';
+import 'Singup.dart';
 
 class Logging extends StatefulWidget {
   const Logging({Key? key}) : super(key: key);
@@ -68,8 +68,12 @@ class _LoggingState extends State<Logging> {
                         height: 15.h,
                       ),
 //logging buttom------------------------------
-                      gradientContainer(347,
-                          buttoms(context, 'تسجيل الدخول', 14, white, () {})),
+                      gradientContainer(
+                          347,
+                          buttoms(context, 'تسجيل الدخول', 14, white, () {
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (_) => SingUp()));
+                          })),
                       SizedBox(
                         height: 34.h,
                       ),
@@ -85,7 +89,7 @@ class _LoggingState extends State<Logging> {
                               SizedBox(
                                 width: 7.w,
                               ),
-                              text(context, "انشاء حساب", 11, purple),
+                           InkWell( child:text(context, "انشاء حساب", 11, purple),onTap: ()=>goTopageReplacement(context, const SingUp())),
                             ],
                           )
                         ],
@@ -102,20 +106,22 @@ class _LoggingState extends State<Logging> {
       )),
     );
   }
+
 //-------------------------------------------------------
   Widget remmerberMe() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-       Row(children: [
-          Icon(Icons.check_circle_rounded, color: ligthtBlack, size: 25.sp),
-        SizedBox(
-          width: 4.w,
+        Row(
+          children: [
+            Icon(Icons.check_circle_rounded, color: ligthtBlack, size: 25.sp),
+            SizedBox(
+              width: 4.w,
+            ),
+            text(context, 'تزكرني', 12.sp, textBlack),
+          ],
         ),
-        text(context, 'تزكرني', 12.sp, textBlack),
-        
-       ],),
-       SizedBox(
+        SizedBox(
           width: 180.w,
         ),
         text(context, 'هل نسيت كلمة المرور؟', 12.sp, purple),

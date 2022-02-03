@@ -1,3 +1,4 @@
+import 'package:celepraty/Account/logging.dart';
 import 'package:celepraty/Models/Methods/method.dart';
 import 'package:celepraty/Models/Variabls/varaibles.dart';
 import "package:flutter/material.dart";
@@ -57,7 +58,7 @@ class _SingUpState extends State<SingUp> {
                         setState(() {
                           isChang = false;
                         });
-                        print("fallower$isChang");
+                        // print("fallower$isChang");
                       },
                     ),
                     gradient: isChang ? true : false,
@@ -141,7 +142,7 @@ class _SingUpState extends State<SingUp> {
                               SizedBox(
                                 width: 7.w,
                               ),
-                              text(context, "تسجيل الدخول", 11, purple),
+                              InkWell(child: text(context, "تسجيل الدخول", 11, purple),onTap: ()=>goTopageReplacement(context, const Logging()),),
                             ],
                           )
                         ],
