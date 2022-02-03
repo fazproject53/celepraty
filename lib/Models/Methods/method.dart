@@ -1,6 +1,7 @@
 //================ convert hex colors to rgb colors================
 import 'package:celepraty/Models/Variabls/varaibles.dart';
 import 'package:celepraty/localization/localization_methods.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -17,31 +18,22 @@ Widget text(
   String key,
   double fontSize,
   Color color, {
-  
-  family = "DroidKufi",
-  align = TextAlign.right,
+  family = "Ciro",
+  align = TextAlign.center,
   double space = 0,
   FontWeight fontWeight = FontWeight.normal,
 }) {
   return Center(
-    child: AutoSizeText.rich(
-     
-     TextSpan( 
-
-       text: "${getTranslated(context, key)}",
-       style: TextStyle(
-         
+    child: Text(
+      key,
+      textAlign: align,
+      style: TextStyle(
         color: color,
         fontFamily: family,
         fontSize: fontSize.sp,
         letterSpacing: space.sp,
         fontWeight: fontWeight,
       ),
-      
-      ),
-      maxLines: 4,
-      minFontSize: 12.sp,
-      
     ),
   );
 }
@@ -89,7 +81,8 @@ Widget gradientContainer(double width,Widget child) {
       width: width.w,
       child:child,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(4.0),
+        boxShadow: [],
+        borderRadius: BorderRadius.circular(10.0),
         gradient: const LinearGradient(
           begin: Alignment(0.7, 2.0),
           end: Alignment(-0.69, -1.0),
@@ -100,6 +93,27 @@ Widget gradientContainer(double width,Widget child) {
       ),
     
     
+  );
+}
+Widget gradientContainerWithHeight(double width, double height, Widget child) {
+
+  return Container(
+    width: width.w,
+    height: height.h,
+    child:child,
+    decoration: const BoxDecoration(
+      borderRadius: BorderRadius.only( bottomLeft: Radius.circular(10.0), topLeft: Radius.circular(10.0),),
+      gradient: LinearGradient(
+        begin: Alignment(0.7, 2.0),
+        end: Alignment(-0.69, -1.0),
+        colors: [Color(0xff0ab3d0), Color(0xffe468ca)],
+        stops: [0.0, 1.0],
+
+      ),
+
+    ),
+
+
   );
 }
 //=============================Padding Widget=================================
@@ -135,6 +149,7 @@ Widget buttoms(context, String key, fontSize, Color textColor, onPressed,
   );
 }
 
+
 //===============================Go To page(push)===============================
 push(context, pageName) {
   return Navigator.push(context, MaterialPageRoute(builder: (_) => pageName));
@@ -144,4 +159,129 @@ push(context, pageName) {
 pushReplacement(context, pageName) {
   return Navigator.pushReplacement(
       context, MaterialPageRoute(builder: (_) => pageName));
+}
+
+//============================profile buttons for listView ========================
+
+Widget addListViewButton(String text, IconData icon){
+  return  Row(children:[  padding(0, 5, 0, SizedBox( child: Icon(icon, color: purple,)),),
+  const SizedBox(width: 10,),
+  Expanded(flex:10,child: Text(text, style: TextStyle(color: black, fontSize: 14.sp),),),]);
+
+}
+
+//get heghit and width===============================================================
+Size getSize(context){
+  return MediaQuery.of(context).size;}
+
+  //=============================TextFields=================================
+  Widget textField(
+      context,
+      icons,
+      String key,
+      double fontSize,
+      bool hintPass,
+      TextEditingController mycontroller,
+      myvali,
+      ) {
+    return TextFormField(
+      obscureText: hintPass,
+      validator: myvali,
+      controller: mycontroller,
+      style: TextStyle(color: white, fontSize: fontSize.sp),
+      decoration: InputDecoration(
+
+          isDense: true,
+          filled: true,
+          hintStyle: TextStyle(color: black, fontSize: fontSize.sp),
+          fillColor: textFieldBlack,
+          labelStyle: TextStyle(color: white, fontSize: fontSize.sp),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.r)),
+          prefixIcon: Icon(icons, color: black, size: 25.sp),
+          labelText: key,
+
+          contentPadding: EdgeInsets.all(10.h)),
+    );
+
+}
+
+Widget textFieldNoIcon(
+    context,
+    String key,
+    double fontSize,
+    bool hintPass,
+    TextEditingController mycontroller,
+    myvali,
+    ) {
+  return TextFormField(
+    obscureText: hintPass,
+    validator: myvali,
+    controller: mycontroller,
+    style: TextStyle(color: white, fontSize: fontSize.sp, fontFamily: 'Cairo'),
+    decoration: InputDecoration(
+        isDense: false,
+        filled: true,
+        hintStyle: TextStyle(color: black, fontSize: fontSize.sp, fontFamily: 'Cairo'),
+        fillColor: textFieldBlack2,
+        labelStyle: TextStyle(color: white, fontSize: fontSize.sp),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(10.r)),
+        labelText: key,
+
+        contentPadding: EdgeInsets.all(10.h)),
+  );
+
+}
+Widget textFieldNoIcon2(
+    context,
+    String key,
+    double fontSize,
+    bool hintPass,
+    TextEditingController mycontroller,
+    myvali,
+    ) {
+  return TextFormField(
+    obscureText: hintPass,
+    validator: myvali,
+    controller: mycontroller,
+    style: TextStyle(color: white, fontSize: fontSize.sp, fontFamily: 'Cairo'),
+    decoration: InputDecoration(
+        isDense: false,
+        filled: true,
+        hintStyle: TextStyle(color: black, fontSize: fontSize.sp, fontFamily: 'Cairo'),
+        fillColor: textFieldBlack2,
+        labelStyle: TextStyle(color: white, fontSize: fontSize.sp),
+        border: OutlineInputBorder(borderRadius: BorderRadius.only( bottomRight: Radius.circular(10.0), topRight: Radius.circular(10.0),)),
+        labelText: key,
+
+        contentPadding: EdgeInsets.all(10.h)),
+  );
+
+}
+
+
+Widget textFeildWithButton(context, child1, child2){
+  return padding(15, 15, 0, SizedBox(
+    width: getSize(context).width,
+    child: Row(
+      children: [
+
+        Expanded(
+          child: padding(0, 0, 12,Container(
+            width: getSize(context).width/1.5,
+            child: child1
+          ),),
+        ),
+
+        Positioned.fill(
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: padding(0, 0, 12, child2),
+
+          ),
+        ),
+
+
+      ],),
+  ),);
+
 }

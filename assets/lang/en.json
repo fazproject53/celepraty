@@ -1,0 +1,20 @@
+{
+  "profileUserName": "user name",
+  "profileCategory": "category",
+  "profileDescription": "Description",
+  "myAccount": "My Account",
+  "invoices": "invoices",
+  "balance": "My Balance",
+  "pricing": "Pricing",
+  "orders": "Orders",
+  "brand": "My brand",
+  "coupon": "Coupons",
+  "studio": "My studio",
+  "privacy policy": "My Privacy Policy",
+  "blocklist": "My block list",
+  "chats": "Chats",
+  "support": "Support",
+  "logout": "LogOut",
+  "copyright": "Copyright reserved"
+
+}
