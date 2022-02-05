@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'Singup.dart';
 
 class Logging extends StatefulWidget {
-  const Logging({Key? key}) : super(key: key);
+ 
 
   @override
   State<Logging> createState() => _LoggingState();
@@ -89,7 +89,7 @@ class _LoggingState extends State<Logging> {
                               SizedBox(
                                 width: 7.w,
                               ),
-                           InkWell( child:text(context, "انشاء حساب", 12, purple),onTap: ()=>goTopageReplacement(context, const SingUp())),
+                           InkWell( child:text(context, "انشاء حساب", 12, purple),onTap: (){goTopageReplacement(context,  SingUp());}),
                             ],
                           )
                         ],

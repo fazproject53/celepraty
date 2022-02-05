@@ -7,14 +7,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'UserForm.dart';
 
 class SingUp extends StatefulWidget {
-  const SingUp({Key? key}) : super(key: key);
-
+ 
   @override
   State<SingUp> createState() => _SingUpState();
 }
 
 class _SingUpState extends State<SingUp> {
-  bool isChang = false;
+  bool? isChang = false;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +60,7 @@ class _SingUpState extends State<SingUp> {
                         // print("fallower$isChang");
                       },
                     ),
-                    gradient: isChang ? true : false,
+                    gradient: isChang! ? true : false,
                   ),
                   SizedBox(
                     width: 21.w,
@@ -82,7 +81,7 @@ class _SingUpState extends State<SingUp> {
                         print("famus$isChang");
                       },
                     ),
-                    gradient: isChang ? false : true,
+                    gradient: isChang! ? false : true,
                   ),
                 ],
               ),
@@ -98,7 +97,7 @@ class _SingUpState extends State<SingUp> {
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
 //====================================TextFields=========================================================
-                           isChang
+                           isChang!
                               ? userForm(context, true)
                               : userForm(context, false),
 //create account------------------------------
@@ -142,7 +141,7 @@ class _SingUpState extends State<SingUp> {
                               SizedBox(
                                 width: 7.w,
                               ),
-                              InkWell(child: text(context, "تسجيل الدخول",12, purple),onTap: ()=>goTopageReplacement(context, const Logging()),),
+                              InkWell(child: text(context, "تسجيل الدخول",12, purple),onTap: (){goTopageReplacement(context,  Logging());},),
                             ],
                           )
                         ],

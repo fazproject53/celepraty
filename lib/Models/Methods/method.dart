@@ -25,10 +25,11 @@ Widget text(
     child: AutoSizeText.rich(
       TextSpan(
         text: key,
+       
         style: TextStyle(
           color: color,
           fontFamily: family,
-          fontSize: fontSize.sp,
+          fontSize: 3+fontSize.sp,
           letterSpacing: space.sp,
           fontWeight: fontWeight,
         ),
@@ -141,12 +142,12 @@ Widget buttoms(context, String key, double fontSize, Color textColor, onPressed,
 
 //===============================Go To page(push)===============================
 goTopagepush(context, pageName) {
-  return Navigator.push(context, MaterialPageRoute(builder: (_) => pageName));
+  return Navigator.push(context, MaterialPageRoute(builder: (context) => pageName));
 }
 
 //===============================Go To page(pushReplacement)===============================
-goTopageReplacement(context, pageName) {
-  return Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => pageName));
+ goTopageReplacement(BuildContext context, pageName) {
+  return Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => pageName));
 }
 
 
