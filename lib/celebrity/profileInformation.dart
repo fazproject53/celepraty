@@ -1,5 +1,6 @@
 import 'package:celepraty/Models/Methods/method.dart';
 import 'package:celepraty/Models/Variabls/varaibles.dart';
+import 'package:celepraty/celebrity/celebratyProfile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,8 +31,7 @@ class _profileInformaionState extends State<profileInformaion>{
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                   SizedBox(height: 80.h,),
-                    padding(10, 12, 0,Container( alignment : Alignment.topRight,child: Text('قم بملئ/تعديل او', style: TextStyle(fontSize: 18, color: textBlack , fontFamily: 'Cairo'), )),),
-                    padding(12, 12, 0,Container(alignment : Alignment.topRight,child: Text( 'معلوماتك الشخصية', style: TextStyle(fontSize: 18, color: textBlack , fontFamily: 'Cairo'), )),),
+                    padding(10, 12, 0,Container( alignment : Alignment.topRight,child: Text('قم بملئ او تعديل \n معلوماتك الشخصية', style: TextStyle(fontSize: 18, color: textBlack , fontFamily: 'Cairo'), )),),
 
                     //========================== form ===============================================
 
@@ -107,7 +107,10 @@ class _profileInformaionState extends State<profileInformaion>{
 
 
                     SizedBox(height: 30,),
-                    padding(15, 15, 0, gradientContainer(getSize(context).width,  buttoms(context, 'حفظ', 20.sp, white, (){})),),
+                    padding(15, 15, 0, gradientContainer(getSize(context).width,  buttoms(context, 'حفظ', 20.sp, white, (){Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => celebratyProfile() ),
+                    );})),),
                     SizedBox(height: 30,),
 
             ]),

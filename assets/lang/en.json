@@ -15,6 +15,21 @@
   "chats": "Chats",
   "support": "Support",
   "logout": "LogOut",
-  "copyright": "Copyright reserved"
+  "copyright": "Copyright reserved",
 
+  "EditProfileTitle": "Fill or edit your personal information",
+  "email": "email",
+  "password": "password",
+  "phoneNumber": "phone number",
+  "country": "country",
+  "city": "city",
+  "category": "category",
+  "snapchat": "snapchat page link",
+  "tiktok": "tiktok page link",
+  "youtube": "youtube page link",
+  "instagram": "instagram page link",
+  "facebook": "facebook page link",
+  "twitter": "twitter page link",
+  "linkedin": "linkedIn page link",
+  "save": "save"
 }
