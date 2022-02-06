@@ -1,5 +1,6 @@
 import 'package:celepraty/Models/Methods/method.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 //colors----------------------------------------------------------------
 Color blue = hexToColor('#0AB3D0');
@@ -36,3 +37,5 @@ String facebookImage=staticPath+"facbok_logo.png";
 
 //country list-------------------------------------------------------------
 List<String>countryName=[ "السعودية","الامارات","البحرين","الكويت","المانيا", "ماليزيا","قطر", "الجزائر","لبنان","سنغافورة","تركيا","الصين","فرنسا","الهند","مصر","العراق""الاردن""امريكا""كوريا"];
+//font textScaling
+double textScaling = 2.7;
